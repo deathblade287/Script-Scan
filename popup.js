@@ -11,7 +11,6 @@ function convertToRawFileUrl(fileUrl) {
   // Extract username/repository, branch, and file path from the URL
   const [, repoPath, branch, filePath] = fileUrl.match(rawUrlRegex);
 
-  // Construct the raw file URL
   const rawFileUrl = `https://raw.githubusercontent.com/${repoPath}/${branch}/${filePath}`;
 
   return rawFileUrl;
@@ -50,12 +49,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   if (isGitHubFileUrl(URL)) {
     const rawURL = convertToRawFileUrl(URL);
     fetchRawFileText(rawURL).then((code) => {
-      // fetchData(code).then((expl) => {
-      //   console.log(typeof expl);
-      //   document.getElementById("expl").textContent = expl;
-      // });
       console.log(code);
-      const apiUrl = "http://127.0.0.1:8000";
+      const apiUrl = "http://159.65.130.248:8000";
       const req_url = `${apiUrl}/?code=${encodeURIComponent(code)}`;
 
       fetch(req_url)
