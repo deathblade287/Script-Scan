@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason === "install") {
     chrome.tabs.create({
-      url: "https://example.com/",
+      url: "https://script-scan-landing-page.vercel.app/",
     });
   }
 });
