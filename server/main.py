@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 
-openai.api_key = "<input-openai-key" >
+openai.api_key = "<input-openai-key>" >
 
 
 def codeSummary(code):
